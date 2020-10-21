@@ -1,0 +1,25 @@
+type User {
+    id: ID!,
+    name: String,
+    surname: String,
+    identityNumber: Float,
+    gender: String,
+    birthPlace: String,
+}
+
+input UserDTO {
+    name: String,
+    surname: String,
+    identityNumber: Float,
+    gender: String,
+    birthPlace: String,
+}
+
+type Query {
+    getByIdentityNumber(identityNumber: Float):User
+    getUsersByBirthPlace(birthPlace: String):[User]
+}
+
+type Mutation {
+    createUser(userDTO: UserDTO):User
+}
